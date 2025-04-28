@@ -1,5 +1,6 @@
 import function
 from function import get_todos
+from function import write_todos
 
 todos = []
 
@@ -17,8 +18,7 @@ while True:
         todos.append(todo.title())
         # print(todos)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos(todos)
 
     elif 'show' in user_action:
             
@@ -55,8 +55,7 @@ while True:
         todo_to_remove = todos[index].strip('\n')
         todos.pop(index)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos(todos)
 
         message = f"Todo {todo_to_remove} was removed from the list." 
         print(message)
