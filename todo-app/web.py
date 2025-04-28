@@ -26,8 +26,9 @@ def add_todo():
 
 for index, i in enumerate(todos):
     st.checkbox(f"{index + 1} - {i}", key = i)
-    if st.session_state[i] == True:
-        todo_to_remove = todos[index].strip('\n')
+    st.write(st.state)
+    if st.session_state[index] == True:
+        # todo_to_remove = todos[index].strip('\n')
         todos.pop(index)
 function.write_todos(todos)
 
