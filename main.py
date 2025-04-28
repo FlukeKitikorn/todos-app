@@ -1,3 +1,6 @@
+import function
+from function import get_todos
+
 todos = []
 
 while True:
@@ -8,8 +11,7 @@ while True:
         todo = input("Enter a todo: ") + "\n"
         todo = user_action[4:] + "\n"
 
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         # print(todos)
         todos.append(todo.title())
@@ -20,8 +22,7 @@ while True:
 
     elif 'show' in user_action:
             
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -49,8 +50,7 @@ while True:
         number = int(user_action[9:])
         index = int(number) - 1
 
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todo_to_remove = todos[index].strip('\n')
         todos.pop(index)
